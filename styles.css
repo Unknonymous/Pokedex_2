@@ -1,0 +1,49 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: black;
+    width: 1024px;
+    margin: auto;
+}
+#wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkblue;
+    border: solid 1px red;
+    width: 900px;
+}
+#poketitle{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    margin: 5px 0px 10px 0px;
+}
+.pokespot{
+    display: inline-block;
+    height: 122px;
+    width: 100px;
+    border: solid 1px white;
+    color: greenyellow;
+    text-align: center;
+    margin: 0px;
+}
+.face{
+    width: 100%;
+}
+#pokebin{
+    width: 635px;
+    display: inline-block;
+    border: solid 3px white;
+}
+#databin{
+    position: fixed;
+    display: inline-block;
+    vertical-align: top;
+    height: 400px;
+    width: 180px;
+    border: solid 30px red;
+    margin-left: 10px;
+}
