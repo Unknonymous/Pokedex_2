@@ -42,8 +42,29 @@ body{
     position: fixed;
     display: inline-block;
     vertical-align: top;
-    height: 400px;
+    height: 405px;
     width: 180px;
     border: solid 30px red;
     margin-left: 10px;
+    color: white;
+}
+#name{
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+#dataface{
+    width: 176px;
+    border: solid 2px white;
+}
+#infoList{
+    display: block;
+    width: 150px;
+    margin: auto;
+    border: solid 2px blue;
+    padding: 10px;
+}
+.list{
+    margin: 0px 10px 0px 20px;
 }

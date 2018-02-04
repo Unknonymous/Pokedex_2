@@ -8,9 +8,9 @@
     <script>
         $(document).ready(function(){
             var base_url = "https://pokeapi.co/api/v2/pokemon/";
-            for (var i = 1; i < 7; i++){
+            for (var i = 1; i < 151; i++){
                 $.get(base_url+i+"/", function(mon){
-                  //console.log(mon);
+                  //Sconsole.log(mon);
                     var oneMon = `
                     <div class="pokespot">
                         <h3>${mon.name}</h3>
@@ -20,26 +20,52 @@
                     $('#pokebin').append(oneMon);
                 }, "json" );
             }
-        });
-        $(document).ready(function(){
-            var base_url = "https://pokeapi.co/api/v2/pokemon/";
             $(pokebin).on('click', '.face', function(){
                 var url = $(this).attr("src");
-                var imgid = url.split("/");
-               console.log(url);
-               console.log(id);
-               var imgid = id.split(".");
+                var id = url.split("/");
+                var imgid = (id[8]).split('.');
+                var tag = (imgid[0]);
+                $.get(base_url+tag+"/", function(data){
+                    var dataPoints = `
+                        <div id="datafill">
+                            <h3 id="name">${data.name}</h3>
+                            <img id="dataface" src="${data.sprites.front_default}" alt="pocket monster" />
+                        </div>
+                        <div id='infoList'></div>
+                    `;
+                    var datalist = "";
+                    datalist += "<h4>Types</h4>";
+                    datalist += "<ul class='list'>";
+                        //console.log(data.weight);
+                    for (var x = 0; x < data.types.length; x++){
+                        datalist += "<li>" + data.types[x].type.name + "</li>"
+                    }
+                    datalist += "</ul><br>";
+                    datalist += "<h4>Height</h4>";
+                    datalist += "<ul class='list'>";
+                    datalist += "<li>" + data.height + "</li>";
+                    datalist += "</ul><br>";
+                    datalist += "<h4>Weight</h4>"
+                    datalist += "<ul class='list'>";
+                    datalist += "<li>" + data.weight + "</li>";                        
+                    datalist += "</ul>"
+
+                    $('#databin').html(dataPoints);
+                    $('#infoList').append(datalist);
+                }, "json" );
             });
-        })
+        });
     </script><!--ends doc.ready-->
 </head>
 <body>
     <div id="wrapper">
         <h1 id="poketitle">Pokemons!</h1>
         <div id="pokebin">
-            
+            <!--pokemons will go here -->
         </div><!--ends pokebin-->
-        <div id="databin"></div><!--ends databin-->
+        <div id="databin">
+                <!--datapoints will go here -->
+        </div><!--ends databin-->
     </div><!--closes wrapper-->
 </body>
 </html>
